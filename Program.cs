@@ -14,13 +14,15 @@ namespace pirec
     {
         static async Task Main(string[] args)
         {
-            string ffmpegFilePath = @"C:\Program Files\ffmpeg\bin\ffmpeg.exe";
-            string ffprobeFilePath = @"C:\Program Files\ffmpeg\bin\ffprobe.exe";
+            string ffmpegFilePath = @"/usr/bin/ffmpeg";
+            string ffprobeFilePath = @"/usr/bin/ffprobe";
 
-            var videoPath = @"C:\Users\Ty\Videos\Recording.mp4";
-            var thumbnailPath = @"C:\Users\Ty\Video\Thumbnail.jpeg";
+            var videoPath = @"test/test.mp4";
+            var thumbnailPath = @"test/thumbnail.jpg";
 
-            var service = MediaToolkitService.CreateInstance(ffmpegFilePath);
+            var serviceProvider = new ServiceCollection().AddMediaToolkit(ffmpegFilePath, ffprobeFilePath).BuildServiceProvider();
+            var service = serviceProvider.GetService<IMediaToolkitService>();
+
             var metadataTask = new FfTaskGetMetadata(videoPath);
             var metadataResult = await service.ExecuteAsync(metadataTask);
 
