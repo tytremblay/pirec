@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MediaToolkit.NetCore/MediaToolkit/MediaToolkit.csproj" />
+    <ProjectReference Include="../MediaToolkit.NetCore/MediaToolkit/MediaToolkit.csproj" />
+    <ProjectReference Include="../tba-api-client-netstandard/src/TBAAPI.V3Client.NetStandard/TBAAPI.V3Client.NetStandard.csproj" />
+
   </ItemGroup>
 
   <ItemGroup>

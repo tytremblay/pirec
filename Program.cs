@@ -14,6 +14,8 @@ namespace pirec
     {
         static async Task Main(string[] args)
         {
+            TBA.TbaApi.TestApi();
+            /*    
             string ffmpegFilePath = @"/usr/bin/ffmpeg";
             string ffprobeFilePath = @"/usr/bin/ffprobe";
 
@@ -33,6 +35,7 @@ namespace pirec
             Console.WriteLine("Save thumbnail: \n");
             var saveThumbnailTask = new FfTaskSaveThumbnail(videoPath, thumbnailPath, TimeSpan.FromSeconds(2));
             await service.ExecuteAsync(saveThumbnailTask);
+            */
 
         }
     }
